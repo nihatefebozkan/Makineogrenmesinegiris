@@ -53,6 +53,3 @@ Analizler, **Teaching** skoru ile **Research Score** arasındaki ilişki, sayıs
 
 ---
 
-## Lisans
-
-Bu proje MIT Lisansı altında paylaşılmıştır; dilediğiniz gibi inceleyebilir, geliştirebilir ve paylaşabilirsiniz.
