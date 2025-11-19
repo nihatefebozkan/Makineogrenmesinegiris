@@ -80,5 +80,3 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 
 ---
 
-## Lisans
-Bu proje MIT Lisansı altında paylaşılmıştır. Dilediğiniz gibi inceleyebilir, geliştirebilir ve paylaşabilirsiniz.
