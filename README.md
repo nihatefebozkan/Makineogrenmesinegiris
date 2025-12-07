@@ -27,11 +27,13 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 ---
 
 ## Veri İşleme Adımları
-1. **Veri Yükleme:** CSV dosyası okunmuş ve ilk birkaç satır görüntülenmiştir.  
-2. **Sütun Seçimi:** Teaching ve Research Score sütunları seçilmiş ve sayısala dönüştürülmüştür.  
-3. **Eksik Veri Temizliği:** Analiz için gerekli sütunlarda eksik veriler çıkarılmıştır.  
-4. **Korelasyon Analizi:** Sayısal tüm sütunlar arasındaki Pearson korelasyon katsayıları hesaplanmış ve ısı haritası ile görselleştirilmiştir.  
-5. **Ülke Bazlı Ortalama:** Overall Score değerleri ülke bazında gruplanmış ve ortalama skorlar çizgi grafiği ile görselleştirilmiştir.
+1. Pandas, Numpy, Matplotlib gibi gerekli kütüphaneleri projeme dahil ettim.
+2. data.csv dosyasını okuyup tablo haline getirdim.
+3. Veri Yükleme: CSV dosyası okunmuş ve ilk birkaç satır görüntülenmiştir.  
+4. Sütun Seçimi: Teaching ve Research Score sütunları seçilmiş ve sayısala dönüştürülmüştür.  
+5. Eksik Veri Temizliği: Analiz için gerekli sütunlarda eksik veriler çıkarılmıştır.  
+6. Korelasyon Analizi: Sayısal tüm sütunlar arasındaki Pearson korelasyon katsayıları hesaplanmış ve ısı haritası ile görselleştirilmiştir.  
+7. Ülke Bazlı Ortalama: Overall Score değerleri ülke bazında gruplanmış ve ortalama skorlar çizgi grafiği ile görselleştirilmiştir.
 
 ---
 
