@@ -57,6 +57,7 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 + Research Score arttıkça Teaching skoru da artıyor; pozitif doğrusal ilişki gözlemleniyor.  
 + Bu, yüksek araştırma performansına sahip üniversitelerin öğretim açısından da güçlü olabileceğini gösteriyor.  
 + Veri noktalarının dağılımı, uç değerler ve genel trend regresyon çizgisi ile anlaşılabiliyor.
++ Görselin sol altında yazan eğim (değişim hızı) bize her bir araştırma puan artışının ne kadar etkilediğini gösterir.
 
 ### 3. Ülke Bazında Ortalama Overall Score
 <img src="images/ortalamagrafik.png" alt="Ülke Bazında Overall Score Grafiği" width="700">
