@@ -36,18 +36,6 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 7. Ülke Bazlı Ortalama: Overall Score değerleri ülke bazında gruplanmış ve ortalama skorlar çizgi grafiği ile görselleştirilmiştir.
 
 ---
-## Modellerin projeye uygunluk oranları 
-## 📊 Model Performans Karşılaştırması (Accuracy)
-
-KNN                  97,26%       
-SVM                  95,89%       
-Decision Tree        97,26%       
-Random Forest        98,63%       
-Logistic Regression  95,89%       
-Naive Bayes          93,84%       
-
-+Random Forest modeli %98.63 ile en yüksek doğruluk oranı var. 
-Genel olarak tüm modeller iyi performans göstermiş olup Random Forest projenin en başarılı modelidir.
 
 
 ## Görseller ve Yorumlar
@@ -62,12 +50,6 @@ Genel olarak tüm modeller iyi performans göstermiş olup Random Forest projeni
 + Research Quality ve Research Score arasında diğerlerine nazaran daha güçsüz bi bağlantı var (r = 0.79). Bu da Research Quality'nin Overall Score'de çok etkisinin olmadığını gösterir. 
 + Analiz, hangi skorların birbirini etkilediğini ve hangi metriklerin bağımsız hareket ettiğini ortaya koyar.
 
-### Naive Bayes Modeli
-<img src="images/naivebayes.png" alt="naive heatmap" width="700">
-+ Veri setindeki skor kolonları (Teaching, Research Score, Industry Income, International Outlook vb.) birbirinden görece bağımsız olduğundan Naive Bayes'in varsayımlarına uygundur.
-+ Küçük örnek sayılı sınıflarda bile düzenli bir sınıflandırma performansı göstermiştir.
-+ Hesaplama maliyeti düşüktür ve hızlı çalışır.
-+ Aşırı öğrenme (overfitting) eğilimi düşüktür.
 
 ### 2. Lineer Regresyon: Research → Teaching
 <img src="images/lineerregresyon.png" alt="Lineer Regresyon Grafiği" width="700">
@@ -79,24 +61,62 @@ Genel olarak tüm modeller iyi performans göstermiş olup Random Forest projeni
 + Veri noktalarının dağılımı, uç değerler ve genel trend regresyon çizgisi ile anlaşılabiliyor.
 + Görselin sol altında yazan eğim (değişim hızı) bize her bir araştırma puan artışının ne kadar etkilediğini gösterir.
 
-### 3. Ülke Bazında Ortalama Overall Score
-<img src="images/ortalamagrafik.png" alt="Ülke Bazında Overall Score Grafiği" width="700">
+### 3. Ülkelere göre endüstri - outlook - overall score ilişkisi
+<img src="images/endustrioutlookulke.png" alt="Ulkelerin veri grafigi" width="700">
 
- 
-+ Çizgi grafikte her ülkenin ortalama Overall Score değeri gösteriliyor.  
-+ Üst sıralarda ABD ve İngiltere gibi ülkeler yer alıyor, bazı ülkeler ise ortalamanın altında.  
-+ Bu grafik, ülke bazında eğitim ve araştırma performans farklarını görselleştirmek için kullanışlıdır.  
+Temel Metrikler:
 
----
+X Ekseni: Ülkenin Endüstri Gelir Skoru (Endüstriyel güç/başarı).
+
+Y Ekseni : Ülkenin Uluslararası Görünüm Skoru (Küresel erişim/çekicilik).
+
+Renk Skalası: Ülkenin Overall Score değerini gösterir
+
+Ana Çıkarımlar:
+
+Yüksek Performanslı Liderler: Singapur, İsviçre ve Hong Kong gibi ülkeler hem Endüstri Gelirinde hem de Uluslararası Görünümde yüksek skorlara sahiptir.
+
+Küresel Etki Alanı Yüksek Olanlar: Arab Emirlikleri ve Macao gibi ülkeler, Uluslararası Görünümde çok yüksek skorlar alarak küresel çekim güçlerini kanıtlar.
+
+Düşük Genel Skor: Japonya, Güney Kore ve Brezilya, yüksek Endüstri Gelirine rağmen Uluslararası Görünüm ve Genel Skorlarda daha alt sıralarda yer almaktadır.
+  
+## Modellerin projeye uygunluk oranları 
+KNN                  97,26%       
+SVM                  95,89%       
+Decision Tree        97,26%       
+Random Forest        98,63%       
+Logistic Regression  95,89%       
+Naive Bayes          93,84%       
+
++Random Forest modeli %98.63 ile en yüksek doğruluk oranı var. 
+Genel olarak tüm modeller iyi performans göstermiş olup Random Forest projenin en başarılı modelidir.
+
+### Decision Tree - Random Forest 
+<img src="images/decisiontree.png" alt="decision tree" width="400">
+-Bu Karmaşıklık Matrisi, Karar Ağacı modelinin 5 farklı sınıfı (0'dan 4'e) sınıflandırma performansını göstermektedir; ana köşegen üzerindeki yüksek sayılar (örneğin 34 ve 30) modelin çoğu sınıfı yüksek doğrulukla tahmin ettiğini belirtir. Modelin tek belirgin hatası, gerçek sınıfı 0 olan 4 örneği yanlışlıkla sınıf 1 olarak tahmin etmesidir, ki bu da modelin sınıfları birbirinden ayırmada genel olarak başarılı olduğunu gösterir.
+
+<img src="images/randomforest.png" alt="random forest" width="400">
+Bu Karmaşıklık Matrisi, Rastgele Orman (Random Forest) modelinin 5 farklı sınıfı (0'dan 4'e) sınıflandırma performansını göstermekte olup, ana köşegen dışındaki tek hata Gerçek sınıfı 0 olan 2 örneğin yanlışlıkla sınıf 1 olarak tahmin edilmesidir. Model, özellikle Sınıf 1'i 34 kez doğru tahmin ederek, Karar Ağacı modeline kıyasla Sınıf 0'daki yanlış tahmin sayısını 4'ten 2'ye düşürerek daha yüksek bir genel doğruluk sergilemiştir.
+
+
+### Endüstri Geliri İle Ülkeleri karşılaştırma grafiği
+<img src="images/overallendustri.png" alt="overall endustri" width="700">
+-Bu yatay çubuk grafik, seçili ülkelerin Ortalama Industry Income Score (Endüstri Gelir Skoru) değerlerini en yüksekten en düşüğe doğru sıralamaktadır. Bu skor, bir ülkenin endüstriyel ekonomik gücünü veya başarısını temsil eder.
+
+-En Yüksek Skorlar: Japonya, Tayvan, Singapur ve Güney Kore, ortalama 100 puana yakın skorlarla listenin başında yer almaktadır.
+
+-Yüksek Skor Alan Diğer Ülkeler: Çin, Belçika, Hong Kong ve Danimarka da 95 ile 100 arasında yüksek skorlara sahiptir.
+
+-Orta Skorlu Ülkeler: Listenin ortalarında yer alan ülkeler (örneğin ABD, İsveç, Kanada) ortalama 85-90 civarında skorlara sahiptir.
+
+-Daha Düşük Skorlu Ülkeler: Norveç, Avusturya, Finlandiya ve İspanya gibi Avrupa ülkeleri, 75 ile 85 arasında değişen skorlarla orta-düşük grupta yer almaktadır.
+
+-En Düşük Skorlar: Listenin sonunda, yaklaşık 70 puanla İtalya, 65 puan civarında Macao ve en düşük skorla (yaklaşık 25 puan) Birleşik Arap Emirlikleri (United Arab Emirates) bulunmaktadır.
+
+-Bu sıralama, bir ülkenin endüstriyel gelir veya ekonomik gücü açısından küresel rakiplerine göre nerede konumlandığını net bir şekilde göstermektedir.
 
 ## Sonuç
 
-- Ülkeler arasında sıralamayı Overall Score göre yapıyoruz. Korelasyon katsayılarını (r) incelediğimizde research ve teaching skorun neredeyse 1 e 1 derecede etkilediğini görüyoruz.
-- Research Score ve Teaching arasındaki pozitif ilişki üniversitelerin öğrenmeyle araştırma performansının beraber ilerlediğini gösteriyor.
-- Ülkelerin Overall Score grafikleri, ülkeler arasındaki ortalama performans farklılıklarını net bir şekilde gösteriyor. Bize hangi dünya ülkelerinin eğitimlerinin daha iyi olduğunu açıkça gösteriyor.
+Bu proje kapsamında üniversitelerin performans verileri detaylı bir şekilde analiz edilmiştir. Analizler, eğitim ve araştırma skorları arasındaki güçlü ilişkiler, sayısal değişkenler arasındaki korelasyonlar ve ülkeler bazında genel performans farklılıklarını ortaya koymuştur. Farklı makine öğrenmesi modelleriyle yapılan sınıflandırma çalışmaları, Random Forest modelinin en yüksek doğruluk oranını gösterdiğini ortaya koymuştur. Elde edilen görselleştirmeler ve istatistiksel sonuçlar, üniversite performansını etkileyen temel faktörleri anlamaya ve küresel karşılaştırmalar yapmaya olanak sağlamaktadır.
 
-
-Veri analizi ve görselleştirme tekniklerini kullanarak dünyadaki üniversitelerin gelişmişlik ve eğitim düzeyini belirlemekle beraber bize bir sıralama yapar.
-
----
 
