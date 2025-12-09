@@ -22,7 +22,7 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
   - Teaching → Öğretim kalitesi skoru  
   - Research Score → Araştırma performans skoru  
   - Overall Score → Genel performans  
-  - Diğer sayısal skorlar: Industry Income, International Outlook vb.
+  - Diğer sayısal skorlar: Industry Income Score, International Outlook Score vb.
 
 ---
 
@@ -36,9 +36,22 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 7. Ülke Bazlı Ortalama: Overall Score değerleri ülke bazında gruplanmış ve ortalama skorlar çizgi grafiği ile görselleştirilmiştir.
 
 ---
+## Modellerin projeye uygunluk oranları 
+## 📊 Model Performans Karşılaştırması (Accuracy)
+
+KNN                  97,26%       
+SVM                  95,89%       
+Decision Tree        97,26%       
+Random Forest        98,63%       
+Logistic Regression  95,89%       
+Naive Bayes          93,84%       
+
++Random Forest modeli %98.63 ile en yüksek doğruluk oranı var. 
+Genel olarak tüm modeller iyi performans göstermiş olup Random Forest projenin en başarılı modelidir.
 
 
 ## Görseller ve Yorumlar
+
 
 
 ### 1. Sayısal Değişkenler Arasındaki Korelasyon
@@ -48,6 +61,13 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 + Teaching ve Research Score arasında güçlü bir pozitif korelasyon mevcut (r = 0.97).  
 + Research Quality ve Research Score arasında diğerlerine nazaran daha güçsüz bi bağlantı var (r = 0.79). Bu da Research Quality'nin Overall Score'de çok etkisinin olmadığını gösterir. 
 + Analiz, hangi skorların birbirini etkilediğini ve hangi metriklerin bağımsız hareket ettiğini ortaya koyar.
+
+### Naive Bayes Modeli
+<img src="images/naivebayes.png" alt="naive heatmap" width="700">
++ Veri setindeki skor kolonları (Teaching, Research Score, Industry Income, International Outlook vb.) birbirinden görece bağımsız olduğundan Naive Bayes'in varsayımlarına uygundur.
++ Küçük örnek sayılı sınıflarda bile düzenli bir sınıflandırma performansı göstermiştir.
++ Hesaplama maliyeti düşüktür ve hızlı çalışır.
++ Aşırı öğrenme (overfitting) eğilimi düşüktür.
 
 ### 2. Lineer Regresyon: Research → Teaching
 <img src="images/lineerregresyon.png" alt="Lineer Regresyon Grafiği" width="700">
@@ -70,20 +90,11 @@ Proje, veri analizi ve görselleştirme adımlarını birleştirerek üniversite
 ---
 
 ## Sonuç
-Overall Score ile ilişkileri ;
-  + Research Score	   r = 0.9783
-  + Teaching Score     r = 0.9659
-  + Research Quality   r = 0.7013
-  + Outlook Score      r = 0.3440
-  + Industry I. Score  r = 0.2937
+
 - Ülkeler arasında sıralamayı Overall Score göre yapıyoruz. Korelasyon katsayılarını (r) incelediğimizde research ve teaching skorun neredeyse 1 e 1 derecede etkilediğini görüyoruz.
 - Research Score ve Teaching arasındaki pozitif ilişki üniversitelerin öğrenmeyle araştırma performansının beraber ilerlediğini gösteriyor.
 - Ülkelerin Overall Score grafikleri, ülkeler arasındaki ortalama performans farklılıklarını net bir şekilde gösteriyor. Bize hangi dünya ülkelerinin eğitimlerinin daha iyi olduğunu açıkça gösteriyor.
 
-Regresyon Model Katsayıları;
-- KNN -> R^2 = 0.9739
-- SVR -> R^2 = 0.9588
-Bu veriler bize %95'in üzerinde bir başarı göstererek, Research Score verisinin, bir üniversitenin Overall Score'unu tahmin etmede ne kadar güçlü ve belirleyici bir faktör olduğunu kanıtlamıştır. KNN modeli ise verinize en iyi performansı vermiştir.
 
 Veri analizi ve görselleştirme tekniklerini kullanarak dünyadaki üniversitelerin gelişmişlik ve eğitim düzeyini belirlemekle beraber bize bir sıralama yapar.
 
